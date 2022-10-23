@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "Loop Quest",
+  "version": "1.3",
+  "description": "Loop the last Quest. Default short cut .",
+  "background": {
+    "scripts": ["js/jquery-3.2.1.min.js",  "js/background.js"]
+  },
+  "page_action": {
+    "default_icon": {
+      "19": "images/icon/icon_19.png",
+      "38": "images/icon/icon_38.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://game.granbluefantasy.jp/*", "https://game.granbluefantasy.jp/*"],
+      "js": ["js/jquery-3.2.1.min.js",  "js/background.js",  "js/contentscript.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "clipboardWrite"
+  ],
+  "icons": {
+    "128": "images/icon/icon_128.png"
+  },
+  "commands": {
+    "GoLoop": {
+      "suggested_key": {
+        "default": "Ctrl+L"
+      },
+      "description": "Loop last quest",
+      "global": true
+    }
+  }
+}
