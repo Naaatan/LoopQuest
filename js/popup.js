@@ -13,40 +13,17 @@ $(function(){
     });
   }
 
-  // $("#Save").on("click", function(){
-  //   localStorage.setItem("text", $("#text").val());
-  // });
-
-  $("#Go").on("click", function(){
-    // 現在のタブのURLをクリップボードにコピー
-    // chrome.tabs.getSelected(null, function(tab){
-    //   copyText("{1}".replace("{1}", tab.url));
-    // });
-
-    // テキストエリアのURLへ遷移
-    // goUrl($("#text").val())
-
+  $("#Go").on("click", function () {
     // ローカルストレージへ保存したURLへ遷移
     goUrl(localStorage.getItem("text"));
   });
-
-  // function showSaveData(){
-  //   $("#text").val(localStorage.getItem("text"));
-  // }
-  // showSaveData();
 });
 
 
 // background.js のデータを参照
-var parsedItems = chrome.extension.getBackgroundPage().parsedItems;
 var roopUrl = chrome.extension.getBackgroundPage().roopUrl;
 
-$(document).ready(function() {
-   // テキストエリアへURLを表示
-   // $("#text").val(roopUrl);
-   // ローカルストレージへテキストエリアの文字列を保存
-   // localStorage.setItem("text", $("#text").val());
-
+$(document).ready(function () {
    // ローカルストレージへクエストURLを保存
    localStorage.setItem("text", roopUrl);
 });
